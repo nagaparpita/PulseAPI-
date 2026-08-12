@@ -23,4 +23,4 @@ The database contains four main tables:
 
 ## Documentation
 
-[View Database Design and ER Diagram](documentation/PulseAPI_Database_Design_ER_Diagram.pdf)
+[View Database Design and ER Diagram](documentation/PulseAPI_Database_Design.pdf)
