@@ -1,43 +1,21 @@
 # PulseAPI
 
-## API Monitoring and Alerting Platform
+## Database Design and ER Diagram
 
-PulseAPI is an API monitoring platform that continuously monitors APIs
-and checks their availability, response time, HTTP status code, and failures.
+This repository contains the **Database Design and Entity-Relationship (ER) Diagram** for the **PulseAPI – API Monitoring and Alerting Platform**.
 
-## Technologies Used
+The document describes the database structure used for the project, including the main tables, fields, primary keys, foreign keys, and relationships between the tables.
 
-- Java
-- Spring Boot
-- MySQL
-- Spring Data JPA
-- Hibernate
-- Spring Scheduler
-- RestTemplate / WebClient
+## Database Tables
 
-## Main Features
-
-- User registration and login
-- Add and manage APIs
-- Automatic API monitoring
-- Response time monitoring
-- HTTP status monitoring
-- API failure detection
-- Monitoring history
-- Email/notification alerts
-
-## Database
-
-The project uses MySQL for storing:
+The database contains four main tables:
 
 - Users
 - APIs
 - Monitoring Results
 - Alerts
 
-## Database Design
-
-The database contains the following relationships:
+## Database Relationships
 
 - Users → APIs : 1:N
 - APIs → Monitoring Results : 1:N
@@ -45,4 +23,4 @@ The database contains the following relationships:
 
 ## Documentation
 
-[Database Design and ER Diagram](documentation/PulseAPI_Database_Design.pdf)
+[View Database Design and ER Diagram](documentation/PulseAPI_Database_Design_ER_Diagram.pdf)
