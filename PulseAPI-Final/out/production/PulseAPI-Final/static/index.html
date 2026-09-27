@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    ```
+    <title>PulseAPI - API Monitoring System</title>
+
+    <!-- Our CSS file -->
+    <link rel="stylesheet" href="style.css">
+    ```
+
+</head>
+
+<body>
+
+<!-- ================= LOGIN PAGE ================= -->
+
+<div id="loginPage" class="auth-page">
+
+    ```
+    <div class="auth-box">
+
+        <div class="logo-area">
+
+            <img src="pulseapi-logo.png"
+                 alt="PulseAPI Logo"
+                 class="auth-pulseapi-logo">
+
+            <h1>PulseAPI</h1>
+
+            <p>API Monitoring & Alerting System</p>
+
+        </div>
+
+
+        <h2>Welcome Back!</h2>
+
+        <p class="small-text">
+            Login to monitor your APIs
+        </p>
+
+
+        <form id="loginForm">
+
+            <label>Email</label>
+
+            <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Enter your email"
+                    required
+            >
+
+
+            <label>Password</label>
+
+            <div class="password-box">
+
+                <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Enter your password"
+                        required
+                >
+
+            </div>
+
+
+            <button type="submit" class="main-button">
+                Login
+            </button>
+
+        </form>
+
+
+        <button id="forgotPassword" class="link-button">
+            Forgot Password?
+        </button>
+
+
+        <div class="divider">
+            <span>OR</span>
+        </div>
+
+
+        <button id="showRegister" class="secondary-button">
+            Create New Account
+        </button>
+
+
+        <p id="loginMessage" class="message"></p>
+
+    </div>
+    ```
+
+</div>
+
+<!-- ================= REGISTER PAGE ================= -->
+
+<div id="registerPage" class="auth-page hidden">
+
+    ```
+    <div class="auth-box">
+
+        <div class="logo-area">
+
+            <img src="pulseapi-logo.png"
+                 alt="PulseAPI Logo"
+                 class="auth-pulseapi-logo">
+
+            <h1>PulseAPI</h1>
+
+            <p>Create your account</p>
+
+        </div>
+
+
+        <h2>Create Account</h2>
+
+        <p class="small-text">
+            Register to start monitoring APIs
+        </p>
+
+
+        <form id="registerForm">
+
+            <label>Name</label>
+
+            <input
+                    type="text"
+                    id="registerName"
+                    placeholder="Enter your name"
+                    required
+            >
+
+
+            <label>Email</label>
+
+            <input
+                    type="email"
+                    id="registerEmail"
+                    placeholder="Enter your email"
+                    required
+            >
+
+
+            <label>Password</label>
+
+            <input
+                    type="password"
+                    id="registerPassword"
+                    placeholder="Create password"
+                    required
+            >
+
+
+            <label>Confirm Password</label>
+
+            <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm password"
+                    required
+            >
+
+
+            <button type="submit" class="main-button">
+                Register
+            </button>
+
+        </form>
+
+
+        <button id="showLogin" class="link-button">
+            Already have an account? Login
+        </button>
+
+
+        <p id="registerMessage" class="message"></p>
+
+    </div>
+    ```
+
+</div>
+
+<!-- ================= DASHBOARD ================= -->
+
+<div id="dashboardPage" class="dashboard hidden">
+
+    ```
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+
+        <!-- Sidebar Logo -->
+
+        <div class="sidebar-logo">
+
+            <img
+                    src="pulseapi-logo.png"
+                    alt="PulseAPI Logo"
+                    class="sidebar-pulseapi-logo"
+            >
+
+
+            <div>
+
+                <h2>PulseAPI</h2>
+
+                <span>
+                Monitoring System
+            </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Navigation -->
+
+        <nav class="sidebar-menu">
+
+
+            <button
+                    class="menu-item active"
+                    data-section="dashboardSection"
+            >
+
+                <span>▣</span>
+
+                Dashboard
+
+            </button>
+
+
+            <button
+                    class="menu-item"
+                    data-section="apiSection"
+            >
+
+                <span>◉</span>
+
+                APIs
+
+            </button>
+
+
+            <button
+                    class="menu-item"
+                    data-section="monitoringSection"
+            >
+
+                <span>◌</span>
+
+                Monitoring
+
+            </button>
+
+
+            <button
+                    class="menu-item"
+                    data-section="alertsSection"
+            >
+
+                <span>!</span>
+
+                Alerts
+
+            </button>
+
+
+        </nav>
+
+
+
+        <!-- Sidebar Bottom -->
+
+        <div class="sidebar-bottom">
+
+            <button
+                    id="logoutButton"
+                    class="logout-button"
+            >
+
+                Logout
+
+            </button>
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- ================= MAIN DASHBOARD AREA ================= -->
+
+    <main class="main-content">
+
+
+        <!-- ================= TOP BAR ================= -->
+
+        <header class="topbar">
+
+
+            <div>
+
+                <h1 id="pageTitle">
+                    Dashboard
+                </h1>
+
+                <p>
+                    Monitor your APIs in one place
+                </p>
+
+            </div>
+
+
+
+            <div class="user-info">
+
+
+                <div
+                        class="user-avatar"
+                        id="userAvatar"
+                >
+                    U
+                </div>
+
+
+                <div>
+
+                    <strong id="userName">
+                        User
+                    </strong>
+
+                    <span>
+                    Administrator
+                </span>
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- ================= DASHBOARD SECTION ================= -->
+
+        <section
+                id="dashboardSection"
+                class="content-section"
+        >
+
+
+            <!-- Welcome Box -->
+
+            <div class="welcome-box">
+
+
+                <div>
+
+                    <h2>
+                        Welcome to PulseAPI 👋
+                    </h2>
+
+
+                    <p>
+
+                        Monitor API status, response time
+                        and alerts from one dashboard.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="pulse-icon">
+
+                    <img
+                            src="pulseapi-logo.png"
+                            alt="PulseAPI Logo"
+                            class="dashboard-pulseapi-logo"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ================= STATISTICS ================= -->
+
+            <div class="stats-grid">
+
+
+                <div class="stat-card blue-card">
+
+
+                    <div class="stat-icon">
+                        API
+                    </div>
+
+
+                    <div>
+
+                        <p>
+                            Total APIs
+                        </p>
+
+                        <h2 id="totalApis">
+                            0
+                        </h2>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="stat-card green-card">
+
+
+                    <div class="stat-icon">
+                        ✓
+                    </div>
+
+
+                    <div>
+
+                        <p>
+                            APIs UP
+                        </p>
+
+                        <h2 id="upApis">
+                            0
+                        </h2>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="stat-card red-card">
+
+
+                    <div class="stat-icon">
+                        !
+                    </div>
+
+
+                    <div>
+
+                        <p>
+                            APIs DOWN
+                        </p>
+
+                        <h2 id="downApis">
+                            0
+                        </h2>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="stat-card orange-card">
+
+
+                    <div class="stat-icon">
+                        A
+                    </div>
+
+
+                    <div>
+
+                        <p>
+                            Total Alerts
+                        </p>
+
+                        <h2 id="totalAlerts">
+                            0
+                        </h2>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ================= RECENT ACTIVITY ================= -->
+
+            <div class="content-card">
+
+
+                <div class="card-heading">
+
+
+                    <div>
+
+                        <h2>
+                            Recent API Activity
+                        </h2>
+
+                        <p>
+                            Latest monitoring information
+                        </p>
+
+                    </div>
+
+
+                    <button
+                            class="small-button"
+                            onclick="showSection('apiSection')"
+                    >
+                        View APIs
+                    </button>
+
+
+                </div>
+
+
+                <div
+                        id="recentActivity"
+                        class="activity-list"
+                ></div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================= API SECTION ================= -->
+
+        <section
+                id="apiSection"
+                class="content-section hidden"
+        >
+
+
+            <div class="section-heading">
+
+
+                <div>
+
+                    <h2>
+                        API Management
+                    </h2>
+
+                    <p>
+                        Add and manage your APIs
+                    </p>
+
+                </div>
+
+
+                <button
+                        id="showApiFormButton"
+                        class="main-small-button"
+                >
+                    + Add API
+                </button>
+
+
+            </div>
+
+
+
+            <!-- Add API Form -->
+
+            <div
+                    id="apiFormBox"
+                    class="form-card hidden"
+            >
+
+
+                <h3>
+                    Add New API
+                </h3>
+
+
+                <form id="apiForm">
+
+
+                    <div class="form-grid">
+
+
+                        <div>
+
+                            <label>
+                                API Name
+                            </label>
+
+
+                            <input
+                                    type="text"
+                                    id="apiName"
+                                    placeholder="Example: Google API"
+                                    required
+                            >
+
+                        </div>
+
+
+
+                        <div>
+
+                            <label>
+                                API URL
+                            </label>
+
+
+                            <input
+                                    type="url"
+                                    id="apiUrl"
+                                    placeholder="https://example.com"
+                                    required
+                            >
+
+                        </div>
+
+
+
+                        <div>
+
+                            <label>
+                                HTTP Method
+                            </label>
+
+
+                            <select id="httpMethod">
+
+                                <option value="GET">
+                                    GET
+                                </option>
+
+                                <option value="POST">
+                                    POST
+                                </option>
+
+                                <option value="PUT">
+                                    PUT
+                                </option>
+
+                                <option value="DELETE">
+                                    DELETE
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <div>
+
+                            <label>
+                                Monitoring Interval
+                            </label>
+
+
+                            <select id="monitoringInterval">
+
+                                <option value="1 Minute">
+                                    1 Minute
+                                </option>
+
+                                <option value="5 Minutes">
+                                    5 Minutes
+                                </option>
+
+                                <option value="10 Minutes">
+                                    10 Minutes
+                                </option>
+
+                                <option value="30 Minutes">
+                                    30 Minutes
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="form-buttons">
+
+
+                        <button
+                                type="submit"
+                                class="main-small-button"
+                        >
+                            Save API
+                        </button>
+
+
+                        <button
+                                type="button"
+                                id="cancelApiButton"
+                                class="cancel-button"
+                        >
+                            Cancel
+                        </button>
+
+
+                    </div>
+
+
+                </form>
+
+
+            </div>
+
+
+
+            <!-- API Table -->
+
+            <div class="content-card">
+
+
+                <div class="card-heading">
+
+
+                    <div>
+
+                        <h2>
+                            My APIs
+                        </h2>
+
+                        <p>
+                            List of registered APIs
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="table-container">
+
+
+                    <table>
+
+
+                        <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>API Name</th>
+
+                            <th>URL</th>
+
+                            <th>Method</th>
+
+                            <th>Status</th>
+
+                            <th>Interval</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                        </thead>
+
+
+                        <tbody id="apiTableBody"></tbody>
+
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================= MONITORING SECTION ================= -->
+
+        <section
+                id="monitoringSection"
+                class="content-section hidden"
+        >
+
+
+            <div class="section-heading">
+
+
+                <div>
+
+                    <h2>
+                        Monitoring Results
+                    </h2>
+
+                    <p>
+                        Check API response and performance
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="content-card">
+
+
+                <div class="table-container">
+
+
+                    <table>
+
+
+                        <thead>
+
+                        <tr>
+
+                            <th>
+                                Result ID
+                            </th>
+
+                            <th>
+                                API
+                            </th>
+
+                            <th>
+                                Status Code
+                            </th>
+
+                            <th>
+                                Response Time
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Checked At
+                            </th>
+
+                        </tr>
+
+                        </thead>
+
+
+                        <tbody id="monitoringTableBody"></tbody>
+
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================= ALERT SECTION ================= -->
+
+        <section
+                id="alertsSection"
+                class="content-section hidden"
+        >
+
+
+            <div class="section-heading">
+
+
+                <div>
+
+                    <h2>
+                        Alerts
+                    </h2>
+
+                    <p>
+                        View API monitoring alerts
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="content-card">
+
+
+                <div class="table-container">
+
+
+                    <table>
+
+
+                        <thead>
+
+                        <tr>
+
+                            <th>
+                                Alert ID
+                            </th>
+
+                            <th>
+                                API
+                            </th>
+
+                            <th>
+                                Alert Type
+                            </th>
+
+                            <th>
+                                Message
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Sent At
+                            </th>
+
+                        </tr>
+
+                        </thead>
+
+
+                        <tbody id="alertsTableBody"></tbody>
+
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+    ```
+
+</div>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
